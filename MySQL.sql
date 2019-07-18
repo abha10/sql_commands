@@ -17,3 +17,13 @@ GRANT SELECT ON database.* TO 'user'@'localhost';
 
 #To update credentials use following,	
 FLUSH PRIVILEGES;
+#-----------------------------------------------------------------------
+#PROCESSLIST
+
+#Get all running queries
+show processlist;
+show FULL processlist;
+
+#To put conditions on processlist
+select * from information_schema.processlist where user= 'root' \G
+
