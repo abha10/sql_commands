@@ -4,7 +4,7 @@ CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
   #  - use % for a user to access the db from any machine.
 
 #Provide access to a specific db
-GRANT SELECT ON database.* TO 'user'@'localhost';
+GRANT SELECT ON <database name>.* TO 'user'@'localhost';
 
   #ALL PRIVILEGES – grants all privileges to the MySQL user
   #CREATE – allows the user to create databases and tables
