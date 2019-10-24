@@ -27,3 +27,11 @@ show FULL processlist;
 #To put conditions on processlist
 select * from information_schema.processlist where user= 'root' \G
 
+#List all procedures
+SHOW PROCEDURE STATUS;
+
+#List all procedure for a particular db
+SHOW PROCEDURE STATUS WHERE db = '<db name>';
+
+#To describe a procedure
+SHOW CREATE PROCEDURE proc_name
