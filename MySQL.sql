@@ -35,3 +35,31 @@ SHOW PROCEDURE STATUS WHERE db = '<db name>';
 
 #To describe a procedure
 SHOW CREATE PROCEDURE proc_name
+
+
+#MySQL Dump Commands
+
+
+#Command for a specific DB
+mysqldump -uroot -p --master-data=1 --flush-logs --single-transaction --quick --extended-insert --databases marketing_campaigns_db_v2 --ignore-table=marketing_campaigns_db_v2.launch_error_data --ignore-table=marketing_campaigns_db_v2.marketing_campaign_budget_settings_journals --ignore-table=marketing_campaigns_db_v2.strategy_trigger_journals > mysql.dump
+
+
+#Command for a all dbs
+mysqldump -uroot -p --host 127.0.0.1 --master-data=1 --flush-logs --single-transaction --quick --port 5006 --extended-insert --all-databases > mysqlddb_5006.08_07_2019.dump
+
+
+#Explanation of each options used in above command,
+
+
+    --master-data=These are the master server coordinates from which the slave should start replicating after you load the dump file into the slave.
+            1= adds master server corrdinates as sql command.
+            2= adds master server corrdinates as comment.
+    
+    --flush-logs=Flush the MySQL server log files before starting the dump.
+    
+    --single-transaction=Issue a BEGIN SQL statement before dumping data from server.
+    --extended-insert=Use multiple-row INSERT syntax
+    
+    --quick=This option is useful for dumping large tables. It forces mysqldump to retrieve rows for a table from the server a row at a time rather than retrieving the entire row set and buffering it in memory before writing it out.
+    
+    --ignore-table= Do not dump the given table, which must be specified using both the database and table names.
