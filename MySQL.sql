@@ -63,3 +63,8 @@ mysqldump -uroot -p --host 127.0.0.1 --master-data=1 --flush-logs --single-trans
     --quick=This option is useful for dumping large tables. It forces mysqldump to retrieve rows for a table from the server a row at a time rather than retrieving the entire row set and buffering it in memory before writing it out.
     
     --ignore-table= Do not dump the given table, which must be specified using both the database and table names.
+
+
+#Please use --routines (if not used) option in mysqldump command, it takes backup for function and procedures.
+#sql query for schema backup:
+mysqldump -uroot -p --socket=/mnt/mysql_1/mysqld.1.sock --single-transaction --routines --no-data azkaban_db > schema.sql
